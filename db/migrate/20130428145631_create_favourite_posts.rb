@@ -4,6 +4,8 @@ class CreateFavouritePosts < ActiveRecord::Migration
       t.integer :sub_reddit_id 
       
       t.string :name 
+      
+      
 
       t.timestamps
     end

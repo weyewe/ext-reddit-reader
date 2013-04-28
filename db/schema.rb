@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428145631) do
+ActiveRecord::Schema.define(:version => 20130428175738) do
 
   create_table "favourite_posts", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_parsed",  :default => false
   end
 
   create_table "pictures", :force => true do |t|
