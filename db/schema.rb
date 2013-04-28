@@ -11,18 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428181141) do
+ActiveRecord::Schema.define(:version => 20130428145631) do
 
   create_table "favourite_posts", :force => true do |t|
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "is_parsed",  :default => false
+    t.integer  "sub_reddit_id"
     t.string   "name"
+    t.boolean  "is_parsed",     :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "pictures", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "url"
+    t.integer  "favourite_post_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "roles", :force => true do |t|

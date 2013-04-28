@@ -46,11 +46,42 @@ Ext.define('AM.controller.Posts', {
       },
 			'postgrid button[action=loadFromBookmarkObject]': {
         click: this.loadFromBookmark 
+      },
+
+			'postviewer button[action=favObject]': {
+        click: this.favObject 
       }
+
 		
     });
   },
 
+	favObject : function(){
+		var me = this; 
+		var viewport = me.getViewport(); 
+		var selectedPost = me.getList().getSelectedObject() ;
+		var postList = me.getList();
+		
+		if( !selectedPost){ return nil; }
+		
+		var selectedSubreddit = me.getSubredditGrid().getSelectedObject() ;
+		
+		if( !selectedSubreddit){ return nil; }
+		
+	 	var newObject = new AM.model.FavouritePost( {
+			name : selectedPost.get("name"),
+			sub_reddit_id : selectedSubreddit.get("id")
+		} ) ;
+		
+		newObject.save({
+			success: function(record){
+				console.log("Yeah baby, saved");
+			},
+			failure: function( record, op){
+				console.log("yeah baby, not saved");
+			}
+		});
+	},
 
 	loadFromBookmark: function(){
 		
@@ -90,13 +121,9 @@ Ext.define('AM.controller.Posts', {
 		selectedSubreddit.save({
 			success: function(){
 				postList.setLoading(false);
-				console.log("Yeah baby. successful");
-				console.log("the selected post name: " + selectedPost.get('name') );
-				console.log("the subreddit last_viewed_post_name: " + selectedSubreddit.get('last_viewed_post_name'));
 			},
 			failure: function(){}
 		});
-		
 	},
 	  
 	nextObject : function(){

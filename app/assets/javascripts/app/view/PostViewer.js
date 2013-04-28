@@ -130,8 +130,9 @@ Ext.define('AM.view.PostViewer', {
 					'->',
 					{
 	            scope: this,
-	            handler: this.favObject,
-	            text: 'Favourite' 
+	            // handler: this.favObject,
+	            text: 'Favourite' ,
+							action: 'favObject'
 	        }
 
 				);
@@ -149,19 +150,32 @@ Ext.define('AM.view.PostViewer', {
 			window.open(this.active.get('url'));
     },
 
-		favObject: function(){
-			if(!this.active){
-				console.log("wtf bro, no post selected");
-				return;
-			}else{
-				console.log("yeah, favourite!");
-			}
-			
-			// create a new record for favourited post 
-			
-			// set showloading. when it is finished, clear the showLoading
-			
-		},
+		// favObject: function(){
+		// 	if(!this.active){
+		// 		console.log("wtf bro, no post selected");
+		// 		return;
+		// 	}else{
+		// 		var newObject = new AM.model.FavouritePost( {
+		// 			name : this.active.get("name"),
+		// 			sub_reddit_id : 
+		// 		} ) ;
+		// 
+		// 		// learnt from here
+		// 		// http://www.sencha.com/forum/showthread.php?137580-ExtJS-4-Sync-and-success-failure-processing
+		// 		// form.mask("Loading....."); 
+		// 		newObject.save({
+		// 			success: function(record){
+		// 			},
+		// 			failure: function( record, op){
+		// 			}
+		// 		});
+		// 	}
+		// 	
+		// 	// create a new record for favourited post 
+		// 	
+		// 	// set showloading. when it is finished, clear the showLoading
+		// 	
+		// },
 
     /**
      * Open the post in a new tab

@@ -7,13 +7,13 @@ class Api::FavouritePostsController < Api::BaseApiController
   end
 
   def create
-    @parent = SubReddit.find_by_id params[:sub_reddit_id]
-    @object = FavouritePost.create_object(  @parent,  params[:favourite_post] )  
+    @object = FavouritePost.create_object(     params[:favourite_post] )  
     
     if @object.errors.size == 0 
-      render :json => { :success => true, 
-                        :favourite_posts => [@object] , 
-                        :total => @parent.active_favourite_posts.count }  
+      render :json => { 
+                        :success => true, 
+                        :favourite_posts => [@object] 
+                      }  
     else
       msg = {
         :success => false, 
