@@ -9,6 +9,10 @@ class SubReddit < ActiveRecord::Base
     self.where(:is_deleted => false ).order("id DESC")
   end
   
+  def active_favourite_posts
+    self.favourite_posts 
+  end
+  
   def self.create_object( params ) 
     new_object = self.new
     new_object.name = params[:name]
