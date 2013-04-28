@@ -1,6 +1,9 @@
 class SubReddit < ActiveRecord::Base
   attr_accessible :name, :last_viewed_post_name
   validates_presence_of :name 
+  validates_uniqueness_of :name 
+  
+  has_many :favourite_posts 
   
   def self.active_objects
     self.where(:is_deleted => false ).order("id DESC")

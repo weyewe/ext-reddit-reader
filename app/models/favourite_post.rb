@@ -1,4 +1,5 @@
 class FavouritePost < ActiveRecord::Base
+  belongs_to :sub_reddit
   # attr_accessible :title, :body
   #   {name: "created",              type: "string"},
   # 
