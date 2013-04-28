@@ -13,13 +13,13 @@ class FavouritePost < ActiveRecord::Base
   # {name: "is_normal_image_link",  type: 'boolean', defaultValue: true  } ,
   # 
   # { name: 'parsed_images', type: 'auto' }
-	
-	t.string :thumbnail
-	t.string :permalink
-	t.string :author
-	t.string :url
-	t.string :title 
-	t.string :name  
-	t.string :domain 
+  # 
+  # t.string :thumbnail
+  # t.string :permalink
+  # t.string :author
+  # t.string :url
+  # t.string :title 
+  # t.string :name  
+  # t.string :domain 
 	
 end
